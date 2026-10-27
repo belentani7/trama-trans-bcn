@@ -82,3 +82,34 @@ test("seals the named story behind identity and an empty-by-default allowlist", 
   assert.match(robots, /disallow: \["\/historias\/"\]/);
   assert.deepEqual(JSON.parse(hosting), { d1: null, r2: null });
 });
+
+test("CI uses supported Node and executes all product gates in order", async () => {
+  const [workflow, manifestText, workspace] = await Promise.all([
+    read(".github/workflows/ci.yml"),
+    read("package.json"),
+    read("pnpm-workspace.yaml"),
+  ]);
+  const manifest = JSON.parse(manifestText);
+  assert.match(manifest.engines.node, />=22\.13\.0/);
+  assert.match(workflow, /^\s+node-version:\s*['"]?22['"]?\s*$/m);
+  assert.match(workflow, /^\s+run:\s*pnpm install --frozen-lockfile\s*$/m);
+  assert.match(workspace, /^packages:\s*$/m);
+  assert.doesNotMatch(
+    workflow,
+    /--no-frozen-lockfile|continue-on-error:\s*true|pnpm-workspace\.yaml\.disabled/,
+  );
+  const required = [
+    ["lint", "pnpm run lint"],
+    ["test", "pnpm test"],
+    [null, "pnpm exec tsc --noEmit --incremental false"],
+    ["build", "pnpm run build"],
+    ["test:rendered", "pnpm run test:rendered"],
+  ];
+  let previous = -1;
+  for (const [script, command] of required) {
+    if (script) assert.equal(typeof manifest.scripts[script], "string");
+    const index = workflow.indexOf(`run: ${command}`);
+    assert.ok(index > previous, `Missing or out-of-order CI gate: ${command}`);
+    previous = index;
+  }
+});
