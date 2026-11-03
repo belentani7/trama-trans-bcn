@@ -1,0 +1,35 @@
+---
+description: Contexto, stack y convenciones base del proyecto
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Proyecto: belentani7__trama-trans-bcn
+
+Stack detectado: ci, drizzle, frontend, node, react, tailwind, tests, typescript, vite.
+Gestores de paquetes: npm, pnpm.
+Tests: no detectados.
+
+## Protocolo
+
+1. Spec-first: PRD → SRS → Design Doc → ADR → Plan → tests GWT.
+2. Cambios pequeños, reversibles y con verificación real.
+3. Conventional commits: `type(scope): summary`.
+4. No commitear secretos ni credenciales.
+5. No ejecutar TypeScript sin compilar en producción.
+
+## Comandos
+
+- `dev`: `vinext dev`
+- `build`: `vinext build`
+- `start`: `vinext start`
+- `test`: `node --test tests/product-source.test.mjs`
+- `test:rendered`: `node --test tests/rendered-html.test.mjs`
+- `lint`: `eslint app tests vite.config.ts next.config.ts eslint.config.mjs drizzle.config.ts db worker --ignore-pattern dist --ignore-pattern .next`
+- `db:generate`: `drizzle-kit generate`
+
+## Verificación mínima
+
+- Tests del stack en verde.
+- Build reproducible.
+- `gitleaks detect --source . --redact` limpio.
