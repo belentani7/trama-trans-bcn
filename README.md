@@ -41,3 +41,7 @@ Scripts portables para Windows, macOS y Linux:
 Cada entrada conserva finalidad, contacto confirmado, URL primaria oficial, cautelas y `reviewedAt`. La interfaz no puntúa servicios ni transforma ambigüedades en promesas. Las fuentes revisadas pertenecen a Generalitat de Catalunya, CatSalut, Ajuntament de Barcelona y Ministerio de Sanidad.
 
 La salida rápida abre AEMET mediante `location.replace`. Sustituye la entrada actual, pero no borra el historial completo, caché, descargas ni rastros del dispositivo.
+
+
+## Producto
+Véase `plataforma/OFERTA.md`, `plataforma/precios.json`, `plataforma/ONEPAGER.md`.
