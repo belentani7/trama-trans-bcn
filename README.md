@@ -45,3 +45,10 @@ La salida rápida abre AEMET mediante `location.replace`. Sustituye la entrada a
 
 ## Producto
 Véase `plataforma/OFERTA.md`, `plataforma/precios.json`, `plataforma/ONEPAGER.md`.
+
+## Verificacion
+
+```bash
+npm install
+npm test
+```
