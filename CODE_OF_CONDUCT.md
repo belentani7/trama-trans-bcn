@@ -1,12 +1,11 @@
-# Código de Conducta
+# Código de Conducta — trama-trans-bcn
 
 Adaptado del Contributor Covenant, versión 2.1.
 
-## Nuestro compromiso
+## Nuestro Compromiso
 
-Entorno abierto y acogedor para todos.
+Nos comprometemos a hacer de este proyecto una experiencia libre de acoso para todos.
 
 ## Aplicación
 
-Notificar abusos a security@belentani.com.
-
+Los casos de comportamiento inaceptable pueden ser reportados a @belentani7.

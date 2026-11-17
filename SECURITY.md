@@ -1,26 +1,9 @@
-# Security Policy — trama-trans-bcn
+# Política de Seguridad — trama-trans-bcn
 
-## Supported Versions
+## Reportar vulnerabilidades
 
-| Version | Supported |
-|---------|-----------|
-| main (actual) | Yes       |
+Contacta a @belentani7 antes de divulgar públicamente cualquier problema de seguridad.
 
-## Reporting a Vulnerability
+## Escaneo de secretos
 
-Please report security vulnerabilities by emailing **security@belentani.com** or using GitHub's Private Vulnerability Reporting.
-
-Do NOT create public issues for security vulnerabilities.
-
-## Response Timeline
-
-- **Acknowledgment**: Within 48 hours
-- **Assessment**: Within 7 days
-- **Fix**: Within 30 days (critical), 90 days (non-critical)
-
-## Security Measures
-
-- Secret scanning enabled via gitleaks
-- Signed commits required
-- Minimum 2 reviewers for merges
-
+Este repositorio utiliza gitleaks para detectar credenciales expuestas.
